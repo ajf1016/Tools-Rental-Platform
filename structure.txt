@@ -1,0 +1,111 @@
+industrial-tools-rental/
+│── .gitignore
+│── config.php
+│── index.php
+│── db/
+│   ├── database.php
+│   ├── migrations.sql
+│── assets/
+│   ├── css/
+│   │   ├── styles.css
+│   ├── js/
+│   │   ├── main.js
+│   ├── images/
+│── auth/
+│   ├── login.php
+│   ├── register.php
+│   ├── logout.php
+│── admin/
+│   ├── dashboard.php
+│   ├── add_tool.php
+│   ├── edit_tool.php
+│   ├── delete_tool.php
+│   ├── manage_rentals.php
+│   ├── users.php
+│── customer/
+│   ├── dashboard.php
+│   ├── view_tools.php
+│   ├── rent_tool.php
+│   ├── rental_history.php
+│── includes/
+│   ├── header.php
+│   ├── footer.php
+│   ├── navbar.php
+│── api/
+│   ├── get_tools.php
+│   ├── rent_tool.php
+│   ├── return_tool.php
+│── models/
+│   ├── User.php
+│   ├── Tool.php
+│   ├── Rental.php
+│── admin_assets/
+│   ├── css/
+│   ├── js/
+│── customer_assets/
+│   ├── css/
+│   ├── js/
+│── README.md
+
+
+Root Files
+
+    index.php → Home page
+    config.php → Database configuration
+    .gitignore → Prevents unnecessary files from being pushed to GitHub
+
+Database
+
+    database.php → Database connection script
+    migrations.sql → SQL file for database setup (tables: users, tools, rentals)
+
+Frontend
+
+    assets/css/styles.css → Main styles
+    assets/js/main.js → Main JavaScript functionality
+    assets/images/ → Stores images (tool images, logos, etc.)
+
+Authentication
+
+    auth/login.php → Login page for Admin & Customers
+    auth/register.php → Registration for Customers
+    auth/logout.php → Logout functionality
+
+Admin Panel
+
+    admin/dashboard.php → Admin dashboard
+    admin/add_tool.php → Add tools for rental
+    admin/edit_tool.php → Edit tools
+    admin/delete_tool.php → Delete tools
+    admin/manage_rentals.php → Manage rentals (approve, decline, track)
+    admin/users.php → Manage users (view customers)
+
+Customer Panel
+
+    customer/dashboard.php → Customer dashboard
+    customer/view_tools.php → View available tools
+    customer/rent_tool.php → Rent a tool
+    customer/rental_history.php → View past rentals
+
+Reusable Components
+
+    includes/header.php → Header template
+    includes/footer.php → Footer template
+    includes/navbar.php → Navigation menu
+
+API (For AJAX Calls)
+
+    api/get_tools.php → Fetch all tools
+    api/rent_tool.php → Handle renting process
+    api/return_tool.php → Handle returning process
+
+Models (PHP Classes for Business Logic)
+
+    models/User.php → Handles user authentication & registration
+    models/Tool.php → Handles tool-related operations
+    models/Rental.php → Handles rental transactions
+
+Admin & Customer Assets
+
+    admin_assets/ → Styles and scripts specific to the Admin Panel
+    customer_assets/ → Styles and scripts specific to Customers

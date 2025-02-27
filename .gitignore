@@ -1,0 +1,19 @@
+# Ignore IDE and system files
+.idea/
+.vscode/
+.DS_Store
+
+# Ignore environment files
+config.php
+
+# Ignore generated files
+assets/images/uploads/
+admin_assets/uploads/
+customer_assets/uploads/
+
+# Ignore compiled files
+*.log
+*.cache
+
+# Ignore vendor (if using Composer)
+vendor/
