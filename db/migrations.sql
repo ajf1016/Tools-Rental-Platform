@@ -13,11 +13,14 @@ CREATE TABLE rentals (
     tool_id INT NOT NULL,
     rent_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     return_date DATE NULL,
+    total_price DECIMAL(10,2) NULL,
     status ENUM('pending', 'approved', 'returned', 'declined') DEFAULT 'pending',
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (tool_id) REFERENCES tools(id) ON DELETE CASCADE
 );
 
+
+-- ALTER TABLE rentals ADD COLUMN total_price DECIMAL(10,2) NULL; 
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

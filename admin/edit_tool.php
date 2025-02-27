@@ -29,29 +29,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Edit Tool</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+<body class="bg-light">
 
 <?php include '../includes/admin_navbar.php'; ?>
 
 <div class="container mt-5">
-    <h2>Edit Tool</h2>
-    <form method="POST">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <div class="mb-3">
-            <label class="form-label">Tool Name</label>
-            <input type="text" name="name" class="form-control" value="<?php echo $tool['name']; ?>" required>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="text-center">Edit Tool</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                        <div class="mb-3">
+                            <label class="form-label">Tool Name</label>
+                            <input type="text" name="name" class="form-control" value="<?php echo $tool['name']; ?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea name="description" class="form-control" required><?php echo $tool['description']; ?></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Rent Price ($)</label>
+                            <input type="number" name="rent_price" class="form-control" value="<?php echo $tool['rent_price']; ?>" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning w-100">Update Tool</button>
+                        <a href="dashboard.php" class="btn btn-secondary w-100 mt-2">Cancel</a>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Description</label>
-            <textarea name="description" class="form-control" required><?php echo $tool['description']; ?></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Rent Price ($)</label>
-            <input type="number" name="rent_price" class="form-control" value="<?php echo $tool['rent_price']; ?>" required>
-        </div>
-        <button type="submit" class="btn btn-warning">Update Tool</button>
-    </form>
+    </div>
 </div>
 
 </body>

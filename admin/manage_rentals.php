@@ -24,18 +24,41 @@ if (isset($_GET['decline'])) {
 // Mark as Returned
 if (isset($_GET['returned'])) {
     $id = $_GET['returned'];
-    mysqli_query($conn, "UPDATE rentals SET status='returned', return_date=NOW() WHERE id='$id'");
-    echo "<script>alert('Tool Marked as Returned'); window.location='manage_rentals.php';</script>";
+
+    // Get rent date & tool rent price
+    $rental_query = mysqli_query($conn, "
+        SELECT rentals.rent_date, tools.rent_price 
+        FROM rentals 
+        JOIN tools ON rentals.tool_id = tools.id 
+        WHERE rentals.id = '$id'
+    ");
+    $rental = mysqli_fetch_assoc($rental_query);
+
+    $rent_date = new DateTime($rental['rent_date']);
+    $return_date = new DateTime(); // Today's date
+    $days_rented = $rent_date->diff($return_date)->days + 1; // Ensure minimum 1-day rent
+
+    $total_price = $days_rented * $rental['rent_price'];
+
+    // Update rental status & total price
+    mysqli_query($conn, "
+        UPDATE rentals 
+        SET status='returned', return_date=NOW(), total_price='$total_price' 
+        WHERE id='$id'
+    ");
+
+    echo "<script>alert('Tool Marked as Returned. Total Rent: $$total_price'); window.location='manage_rentals.php';</script>";
 }
 
 // Fetch Rentals
 $rentals = mysqli_query($conn, "
-    SELECT rentals.*, users.name AS customer_name, tools.name AS tool_name 
+    SELECT rentals.*, users.name AS customer_name, tools.name AS tool_name, tools.rent_price, rentals.total_price
     FROM rentals 
     JOIN users ON rentals.user_id = users.id 
     JOIN tools ON rentals.tool_id = tools.id
     ORDER BY rentals.status DESC
 ");
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +70,7 @@ $rentals = mysqli_query($conn, "
 </head>
 <body>
 
-<?php include 'navbar.php'; ?>
+<?php include '../includes/admin_navbar.php'; ?>
 
 <div class="container mt-5">
     <h2>Manage Rentals</h2>

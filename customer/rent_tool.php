@@ -14,6 +14,6 @@ if (isset($_GET['id'])) {
     $query = "INSERT INTO rentals (user_id, tool_id) VALUES ('$user_id', '$tool_id')";
     mysqli_query($conn, $query);
 
-    echo "<script>alert('Rental Request Sent!'); window.location='rental_history.php';</script>";
+    echo "<script>alert('Rental Request Sent! Waiting for Admin Approval.'); window.location='dashboard.php';</script>";
 }
 ?>

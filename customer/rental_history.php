@@ -9,11 +9,12 @@ if (!isset($_SESSION["user_id"]) || $_SESSION["user_role"] != "customer") {
 
 $user_id = $_SESSION["user_id"];
 $rentals = mysqli_query($conn, "
-    SELECT rentals.*, tools.name AS tool_name 
+    SELECT rentals.*, tools.name AS tool_name, tools.rent_price, rentals.total_price
     FROM rentals 
     JOIN tools ON rentals.tool_id = tools.id
     WHERE rentals.user_id = '$user_id'
 ");
+?>
 
 ?>
 
@@ -36,6 +37,7 @@ $rentals = mysqli_query($conn, "
                 <th>Tool</th>
                 <th>Rent Date</th>
                 <th>Return Date</th>
+                <th>Total Price</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -45,6 +47,7 @@ $rentals = mysqli_query($conn, "
                     <td><?php echo $rental['tool_name']; ?></td>
                     <td><?php echo $rental['rent_date']; ?></td>
                     <td><?php echo $rental['return_date'] ? $rental['return_date'] : 'N/A'; ?></td>
+                    <td><?php echo ($rental['status'] == 'returned') ? "$" . $rental['total_price'] : "N/A"; ?></td>
                     <td>
                         <span class="badge bg-<?php 
                             echo $rental['status'] == 'pending' ? 'warning' :
