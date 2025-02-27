@@ -7,6 +7,18 @@ CREATE TABLE tools (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE rentals (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    tool_id INT NOT NULL,
+    rent_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    return_date DATE NULL,
+    status ENUM('pending', 'approved', 'returned', 'declined') DEFAULT 'pending',
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (tool_id) REFERENCES tools(id) ON DELETE CASCADE
+);
+
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -15,3 +27,8 @@ CREATE TABLE users (
     role ENUM('admin', 'customer') NOT NULL DEFAULT 'customer',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Insert an Admin User (Manually)
+INSERT INTO users (name, email, password, role) 
+VALUES ('Admin User', 'admin@example.com', MD5('admin123'), 'admin');
+
