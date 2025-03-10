@@ -31,7 +31,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert an Admin User (Manually)
-INSERT INTO users (name, email, password, role) 
-VALUES ('Admin User', 'admin@example.com', MD5('admin123'), 'admin');
+-- Insert an Admin User
+-- INSERT INTO users (name, email, password, role) 
+-- VALUES ('Admin User', 'admin@example.com', MD5('admin123'), 'admin');
 
