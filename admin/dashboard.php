@@ -25,6 +25,10 @@ $total_users = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count 
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
     </head>
     <body>
         <?php include '../includes/admin_navbar.php'; ?>
@@ -34,7 +38,8 @@ $total_users = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count 
             <div class="row">
                 <div class="col-md-4">
                     <div class="card text-white bg-primary">
-                        <div class="card-body">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tools fa-3x mb-3"></i>
                             <h5 class="card-title">Total Tools</h5>
                             <p class="card-text"><?php echo $total_tools; ?></p>
                         </div>
@@ -42,17 +47,17 @@ $total_users = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count 
                 </div>
                 <div class="col-md-4">
                     <div class="card text-white bg-success">
-                        <div class="card-body">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clipboard-list fa-3x mb-3"></i>
                             <h5 class="card-title">Total Rentals</h5>
-                            <p class="card-text">
-                                <?php echo $total_rentals; ?>
-                            </p>
+                            <p class="card-text"><?php echo $total_rentals; ?></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card text-white bg-danger">
-                        <div class="card-body">
+                        <div class="card-body text-center">
+                            <i class="fas fa-users fa-3x mb-3"></i>
                             <h5 class="card-title">Total Users</h5>
                             <p class="card-text"><?php echo $total_users; ?></p>
                         </div>
