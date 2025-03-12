@@ -26,10 +26,10 @@ $tools = mysqli_query($conn, "SELECT * FROM tools");
     <h2>Available Tools for Rent</h2>
     <div class="row">
         <?php while ($tool = mysqli_fetch_assoc($tools)) { ?>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card shadow-lg">
-                <img src="../assets/images/<?php echo $tool['image']; ?>" class="card-img-top" alt="<?php echo $tool['name']; ?>">
-                    <div class="card-body">
+                <img src="../assets/images/<?php echo $tool['image']; ?>" class="card-img-top" alt="<?php echo $tool['name']; ?>" style="width: 250px; height: 250px; object-fit: contain; margin: 0 auto;">
+                    <div class="card-body" style="margin-top : 20px;">
                         <h5 class="card-title"><?php echo $tool['name']; ?></h5>
                         <p class="card-text"><?php echo $tool['description']; ?></p>
                         <p class="fw-bold">Rent: $<?php echo $tool['rent_price']; ?>/day</p>

@@ -33,7 +33,7 @@ include 'config.php';
 </nav>
 
 <!-- Hero Section -->
-<header class="hero-section text-center text-white d-flex align-items-center" style="background: url('assets/images/hero-bg.jpg') no-repeat center center/cover; height: 60vh;">
+<header class="hero-section text-center text-white d-flex align-items-center" style="background: url('assets/images/hero1.avif') no-repeat center center/cover; height: 60vh;">
     <div class="container">
         <h1 class="display-4 fw-bold">Rent Industrial Tools Easily!</h1>
         <p class="lead">Browse a variety of high-quality tools at affordable rental prices.</p>
@@ -53,7 +53,7 @@ include 'config.php';
             echo '
             <div class="col-md-4">
                 <div class="card shadow-lg">
-                    <img src="assets/images/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
+                    <img src="assets/images/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'" style="width: 250px; height: 250px; object-fit: contain; margin: 0 auto;">
                     <div class="card-body">
                         <h5 class="card-title">'.$row['name'].'</h5>
                         <p class="card-text">'.$row['description'].'</p>
@@ -73,18 +73,21 @@ include 'config.php';
         <h2>What Our Customers Say</h2>
         <div class="row mt-4">
             <div class="col-md-4">
+                <img src="assets/images/user1.jpg" class="img-fluid rounded-circle mb-3" alt="John Doe" style="width: 150px; height: 150px; object-fit: cover;">
                 <blockquote class="blockquote">
                     <p>"Great experience! The tools were in perfect condition and easy to rent."</p>
                     <footer class="blockquote-footer">John Doe</footer>
                 </blockquote>
             </div>
             <div class="col-md-4">
+            <img src="assets/images/user2.jpeg" class="img-fluid rounded-circle mb-3" alt="John Doe" style="width: 150px; height: 150px; object-fit: cover;">
                 <blockquote class="blockquote">
                     <p>"Super affordable and convenient rental process. Highly recommended!"</p>
                     <footer class="blockquote-footer">Emily Smith</footer>
                 </blockquote>
             </div>
             <div class="col-md-4">
+            <img src="assets/images/user1.jpg" class="img-fluid rounded-circle mb-3" alt="John Doe" style="width: 150px; height: 150px; object-fit: cover;">
                 <blockquote class="blockquote">
                     <p>"Quick service and well-maintained tools. Will rent again!"</p>
                     <footer class="blockquote-footer">Michael Johnson</footer>
