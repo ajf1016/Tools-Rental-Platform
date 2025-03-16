@@ -19,7 +19,7 @@ $total_users = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count 
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Admin Dashboard</title>
+        <title>Admin Dashboard !</title>
         <link rel="stylesheet" href="../assets/css/styles.css" />
         <link
             rel="stylesheet"
