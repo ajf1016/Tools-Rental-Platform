@@ -13,6 +13,7 @@ $total_tools = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count 
 $total_rentals = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count FROM rentals"))['count'];
 $total_users = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS count FROM users WHERE role='customer'"))['count'];
 
+
 ?>
 
 <!DOCTYPE html>
