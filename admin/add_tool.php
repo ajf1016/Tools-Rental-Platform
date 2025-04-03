@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $target_dir = "../assets/images/";
     $target_file = $target_dir . basename($image);
 
-    // Debugging: Check if file is uploaded successfully
+    // Check if file is uploaded successfully
     if ($_FILES["image"]["error"] !== UPLOAD_ERR_OK) {
         echo "<script>alert('File Upload Error: " . $_FILES["image"]["error"] . "');</script>";
     }
